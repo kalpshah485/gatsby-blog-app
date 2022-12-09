@@ -1,15 +1,15 @@
 import * as React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import Layout from '../../components/layout';
 import Seo from '../../components/seo';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
-const BlogPost = ({ data, children }) => {
-  console.log(data);
+const BlogPost = ({ pageContext, data, children }) => {
   const image = getImage(data.mdx.frontmatter.hero_image)
   return (
     <Layout pageTitle={data.mdx.frontmatter.title}>
       <p>{data.mdx.frontmatter.date}</p>
+      <Link to='/blog'>Back</Link>
       <GatsbyImage
         image={image}
         alt={data.mdx.frontmatter.hero_image_alt}
